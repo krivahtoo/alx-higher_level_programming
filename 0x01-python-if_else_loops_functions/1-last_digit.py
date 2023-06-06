@@ -5,10 +5,10 @@ last = abs(number) % 10
 if (number < 0):
     last = -last
 
-msg = "and is less than 6 and not 0"
+msg = "less than 6 and not 0"
 if (last > 5):
-    msg = "and is greater than 5"
+    msg = "greater than 5"
 elif (last == 0):
-    msg = "and is 0"
+    msg = "0"
 
 print(f"Last digit of {number:d} is {last:d} and is {msg}")
