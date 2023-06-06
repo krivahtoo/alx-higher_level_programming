@@ -11,11 +11,13 @@ int check_cycle(listint_t *list)
 {
 	listint_t *node1, *node2;
 
-	node1 = list;
+	if (list == NULL)
+		return (0);
 	if (list->next && list->next->next)
 		node2 = list->next->next;
 	else
 		return (0);
+	node1 = list;
 	while (node1->next && (node2->next && node2->next->next))
 	{
 		if ((uintptr_t)node1 == (uintptr_t)node2)
