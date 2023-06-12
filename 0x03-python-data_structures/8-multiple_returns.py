@@ -1,0 +1,13 @@
+#!/usr/bin/python3
+
+# returns a tuple with the length of a string and its first character.
+def multiple_returns(sentence):
+    if len(sentence) == 0:
+        return (0, None)
+    return (len(sentence), sentence[0])
+
+
+if __name__ == "__main__":
+    sentence = "At school, I learnt C!"
+    length, first = multiple_returns(sentence)
+    print("Length: {:d} - First character: {}".format(length, first))
