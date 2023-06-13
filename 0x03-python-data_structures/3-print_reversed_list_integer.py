@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 
 def print_reversed_list_integer(my_list=[]):
-    str = "{:d}"
+    if (my_list == None):
+        return
     for num in reversed(my_list):
-        print(str.format(num))
+        print("{:d}".format(num))
 
 
 if __name__ == "__main__":
