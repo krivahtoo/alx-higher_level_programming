@@ -100,6 +100,7 @@ class Square:
             TypeError: If value is not a tuple of 2 positive integers
         """
         if type(value) != tuple or len(value) != 2 or\
+                type(value[0]) != int or type(value[1]) != int or\
                 value[0] < 0 or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = (value[0], value[1])
@@ -113,3 +114,8 @@ if __name__ == "__main__":
 
     my_square = Square(5, (4, 1))
     print(my_square)
+
+    print("--")
+
+    my_square = Square(3, (1, "3"))
+    my_square.my_print()
