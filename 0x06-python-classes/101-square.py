@@ -67,17 +67,16 @@ class Square:
         return string version of Square
         """
         val = ""
-        if self.size == 0:
-            return val
-        for y in range(self.size + self.position[1]):
-            if y >= self.position[1]:
-                for x in range(self.size + self.position[0]):
-                    if x >= self.position[0]:
-                        val += "#"
-                    else:
-                        val += " "
-            if y + 1 != self.size + self.position[1]:
-                val += "\n"
+        if self.size != 0:
+            for y in range(self.size + self.position[1]):
+                if y >= self.position[1]:
+                    for x in range(self.size + self.position[0]):
+                        if x >= self.position[0]:
+                            val += "#"
+                        else:
+                            val += " "
+                if y + 1 != self.size + self.position[1]:
+                    val += "\n"
         return val
 
     @property
