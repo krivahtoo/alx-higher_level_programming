@@ -1,0 +1,40 @@
+The ``2-matrix_divided`` module
+======================
+
+Using ``matrix_divided``
+-------------------
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+... ]
+>>> print(matrix_divided(matrix, 3))
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+>>> print(matrix)
+[[1, 2, 3], [4, 5, 6]]
+
+>>> try:
+...     matrix = [
+...         [1, 2],
+...         [23, 4, 45],
+...         [5, 2]
+...     ]
+...     matrix_divided(matrix, 2)
+... except Exception as e:
+...     print(e)
+Each row of the matrix must have the same size
+
+>>> try:
+...     matrix = [
+...         [1, 2],
+...         [23, "4"],
+...         [5, 2]
+...     ]
+...     matrix_divided(matrix, 2)
+... except Exception as e:
+...     print(e)
+matrix must be a matrix (list of lists) of integers/floats
