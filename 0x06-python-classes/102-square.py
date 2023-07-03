@@ -68,7 +68,7 @@ class Square:
         """
         val = ""
         if self.size == 0:
-            val += "\n"
+            return val
         for y in range(self.size + self.position[1]):
             if y >= self.position[1]:
                 for x in range(self.size + self.position[0]):
@@ -76,7 +76,8 @@ class Square:
                         val += "#"
                     else:
                         val += " "
-            val += "\n"
+            if y + 1 != self.size + self.position[1]:
+                val += "\n"
         return val
 
     @property
@@ -116,6 +117,12 @@ class Square:
         greatter than
         """
         return self.size > value.size
+
+    def __ge__(self, value) -> bool:
+        """
+        greatter than or equal
+        """
+        return self.size >= value.size
 
     def __eq__(self, value) -> bool:
         """

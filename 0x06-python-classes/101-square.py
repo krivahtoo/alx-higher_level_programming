@@ -68,7 +68,7 @@ class Square:
         """
         val = ""
         if self.size == 0:
-            val += "\n"
+            return val
         for y in range(self.size + self.position[1]):
             if y >= self.position[1]:
                 for x in range(self.size + self.position[0]):
@@ -76,7 +76,8 @@ class Square:
                         val += "#"
                     else:
                         val += " "
-            val += "\n"
+            if y + 1 != self.size + self.position[1]:
+                val += "\n"
         return val
 
     @property
@@ -117,5 +118,8 @@ if __name__ == "__main__":
 
     print("--")
 
-    my_square = Square(3, (1, "3"))
+    my_square = Square(3, (1, 3))
+    my_square.my_print()
+
+    my_square = Square(0, (10, 3))
     my_square.my_print()
