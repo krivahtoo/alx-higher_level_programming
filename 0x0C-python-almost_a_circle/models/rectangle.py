@@ -79,9 +79,13 @@ class Rectangle(Base):
 
     def display(self):
         """Print current rectangle"""
-        for _ in range(self.height):
-            for _ in range(self.width):
-                print("#", end="")
+        for y in range(self.height + self.y):
+            if y >= self.y:
+                for x in range(self.width + self.x):
+                    if x >= self.x:
+                        print("#", end="")
+                    else:
+                        print(" ", end="")
             print()
 
     def __str__(self) -> str:
@@ -93,3 +97,17 @@ class Rectangle(Base):
             self.width,
             self.height
         )
+
+    def update(self, *args):
+        """update values"""
+        for i, arg in enumerate(args):
+            if i == 0:
+                self.id = arg
+            if i == 1:
+                self.width = arg
+            if i == 2:
+                self.height = arg
+            if i == 3:
+                self.x = arg
+            if i == 4:
+                self.y = arg
