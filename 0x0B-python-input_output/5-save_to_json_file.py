@@ -9,6 +9,7 @@ def save_to_json_file(my_obj, filename):
     """write json to file"""
     with open(filename, 'w') as f:
         json.dump(my_obj, f)
+        f.close()
 
 
 if __name__ == "__main__":
