@@ -2,9 +2,6 @@
 """Write a class Student that defines a student"""
 
 
-import json
-
-
 class Student:
     """defines a student"""
 
