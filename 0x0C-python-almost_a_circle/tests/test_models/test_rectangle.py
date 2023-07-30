@@ -46,3 +46,15 @@ class TestBase(unittest.TestCase):
         with self.assertRaises(TypeError) as cm:
             Rectangle(12, 16, 2, [])
         self.assertEqual(str(cm.exception), "y must be an integer")
+
+    def test_update0(self):
+        rec = Rectangle(12, 16)
+        rec.update(17, 50)
+        self.assertEqual(rec.id, 17)
+        self.assertEqual(rec.width, 50)
+
+    def test_update1(self):
+        rec = Rectangle(12, 16)
+        rec.update(x=17, id=50)
+        self.assertEqual(rec.x, 17)
+        self.assertEqual(rec.id, 50)
