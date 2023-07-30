@@ -101,7 +101,7 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """update values"""
-        if kwargs is not None and len(kwargs) > 0:
+        if args is None or len(args) <= 0:
             for key, value in kwargs.items():
                 if key == 'id':
                     self.id = value
