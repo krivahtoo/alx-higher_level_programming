@@ -6,6 +6,7 @@ Create a folder named models with an empty file __init__.py inside -
 with this file, the folder will become a Python package
 """
 import json
+import csv
 
 
 class Base:
@@ -61,4 +62,25 @@ class Base:
                 for o in objs:
                     if type(o) == dict:
                         lst.append(cls.create(**o))
+        return lst
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save CSV to file"""
+        objs = [o.to_dictionary() for o in list_objs]
+        with open(cls.__name__ + ".csv", "w") as f:
+            writer = csv.DictWriter(f, fieldnames=objs[0].keys())
+            writer.writeheader()
+            writer.writerows(objs)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Load class instance from csv file"""
+        lst = []
+        with open(cls.__name__ + ".csv", "r") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                # covert every value in row to integer
+                row = {key: int(value) for key, value in row.items()}
+                lst.append(cls.create(**row))
         return lst
