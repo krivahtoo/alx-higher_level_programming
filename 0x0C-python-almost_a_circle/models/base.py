@@ -56,7 +56,7 @@ class Base:
         """Load class instance from file"""
         lst = []
         with open(cls.__name__ + ".json", "r") as f:
-            objs = json.load(f)
+            objs = cls.from_json_string(f.read())
             if type(objs) == list:
                 for o in objs:
                     if type(o) == dict:
