@@ -125,3 +125,13 @@ class Rectangle(Base):
                     self.x = arg
                 if i == 4:
                     self.y = arg
+
+    def to_dictionary(self):
+        """return dict representation"""
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }

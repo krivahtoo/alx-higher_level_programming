@@ -5,6 +5,7 @@ Write the first class Base:
 Create a folder named models with an empty file __init__.py inside -
 with this file, the folder will become a Python package
 """
+import json
 
 
 class Base:
@@ -20,3 +21,10 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """convet dict to json"""
+        if list_dictionaries is None:
+            return "[]"
+        return json.dumps(list_dictionaries)
