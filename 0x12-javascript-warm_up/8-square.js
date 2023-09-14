@@ -1,5 +1,5 @@
 #!/usr/bin/node
-if (process.argv[2]) {
+if (parseInt(process.argv[2])) {
   const x = parseInt(process.argv[2]);
 
   if (x > 0) {
@@ -12,5 +12,5 @@ if (process.argv[2]) {
     }
   }
 } else {
-  console.log('Missing number of occurrences');
+  console.log('Missing size');
 }
